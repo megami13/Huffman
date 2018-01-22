@@ -1,0 +1,8 @@
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.exe.config
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.exe
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.pdb
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\bin\Debug\ClassLibrary3.dll
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\bin\Debug\ClassLibrary3.pdb
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.csprojResolveAssemblyReference.cache
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.exe
+c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.pdb
