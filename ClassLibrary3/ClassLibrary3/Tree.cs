@@ -49,7 +49,7 @@ namespace BinaryTree
                 else
                 {
                     this.LeftTree.Insert(newItem, letter);
-                    //this.LeftTree.ParentTree = this;
+                    this.LeftTree.ParentTree = this;
                 }
             }
             else
@@ -58,26 +58,27 @@ namespace BinaryTree
                 if (this.RightTree == null)
                 {
                     this.RightTree = new Tree<TItem>(newItem, this, letter);
+                    this.ParentTree = this.RightTree;
                 }
                 else
                 {
                     this.RightTree.Insert(newItem, letter);
-                    //this.RightTree.ParentTree = this;
+                    this.ParentTree = this.RightTree;
                 }
             }
         }
-        static string i;
+        //static string i;
         public void WalkTree()
         {
             if (this.RightTree != null)
             {
                 this.RightTree.WalkTree();
-                i = i + "1";
+                //i = i + "1";
             }
             Console.Write(this.NodeData.ToString() + ", " + this.letter + ", ");
-            Console.WriteLine(i);
+            //Console.WriteLine(i);
             
-            /*
+            
             if (ParentTree != null)
             {
                 Console.WriteLine(this.ParentTree.NodeData.ToString());
@@ -86,11 +87,11 @@ namespace BinaryTree
             {
                 Console.WriteLine();
             }
-            */
+            
             if (this.LeftTree != null)
             {
                 this.LeftTree.WalkTree();
-                i = i + "0";
+                //i = i + "0";
             }
         }
     }

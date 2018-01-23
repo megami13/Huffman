@@ -6,3 +6,11 @@ c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeT
 c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.csprojResolveAssemblyReference.cache
 c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.exe
 c:\users\sandran\documents\visual studio 2017\Projects\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.pdb
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.exe.config
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.exe
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\bin\Debug\BinaryTreeTest.pdb
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\bin\Debug\ClassLibrary3.dll
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\bin\Debug\ClassLibrary3.pdb
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.csprojResolveAssemblyReference.cache
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.exe
+C:\Users\SandraN\Desktop\Uczelnia\Huffman\ClassLibrary3\BinaryTreeTest\obj\Debug\BinaryTreeTest.pdb
