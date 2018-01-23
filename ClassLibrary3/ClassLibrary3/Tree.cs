@@ -26,9 +26,9 @@ namespace BinaryTree
 
         //List<Tree<TItem>> objList = new List<Tree<TItem>>();
 
-        public Tree(TItem nodeValue, Tree<TItem> parent, string Letter) // konstruktor
+        public Tree(TItem Frequency, Tree<TItem> parent, string Letter) // konstruktor
         {
-            this.NodeData = nodeValue;
+            this.NodeData = Frequency;
             this.LeftTree = null;
             this.RightTree = null;
             this.ParentTree = parent;

@@ -4,172 +4,78 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BinaryTree;
+using System.IO;
 
 namespace BinaryTreeTest
 {
-    class Program
+    public static class Extensions
     {
-        static string text;
-        int n = text.Length;
-
-        static void a(string[] tab, string text)
+        public static Dictionary<char, int> CharacterCount(this string text)
         {
-            char[] tab_ = new char[text.Length];
-            int n = text.Length;
+            return text.GroupBy(c => c)
+                       .OrderBy(c => c.Key)
+                       .ToDictionary(grp => grp.Key, grp => grp.Count());
+        }
+    }
 
-            for (int j = 0; j < text.Length; j++)
-            {
-                char letter_text_char = text[j];
-                //string letter_text = Convert.ToString(letter_text_char) + "0";
-                tab[j] = Convert.ToString(letter_text_char);
-            }
+    static class Program
+    {
 
-                var dict = new Dictionary<string, int>();
-            foreach (var i in tab)
-                if (dict.ContainsKey(i))
-                    dict[i]++;
-                else
-                    dict[i] = 1;
-
-            foreach (var group in tab.GroupBy(s => s))
-                Console.WriteLine("{0} = {1}", group.Key, group.Count());
-            /*
-            for (int j = 0; j < text.Length; j++)
-            {
-                char letter_text_char = text[j];
-                //string letter_text = Convert.ToString(letter_text_char) + "0";
-                tab_[j] = letter_text_char;
-            }
-            for (int m = 0; m < text.Length; m++)
-            {
-                char letter_text_char = text[m];
-                //string letter_text = Convert.ToString(letter_text_char) + "0";
-                tab[m] = Convert.ToString(letter_text_char) + "0";
-            }
-            
-            for (int i = 0; i < text.Length; i++)
-            {
-                for (int k = 0; k < i; k++)
-                {
-                    char letter = text[i];
-                    char letter_tab = tab[k][0];
-
-                    if (i == 0)
-                    {
-                        tab[0] = Convert.ToString(letter) + "1";
-                    }
-                    if (letter == letter_tab)
-                    {
-                        char tab_letter_count = tab[k][1];
-                        tab[k] = tab[k] + "1";
-                        break;
-                    }
-                    else
-                    {
-                        tab[i] = Convert.ToString(letter) + "1";
-                    }
-                }
-            }
-            */
-            /*
-            for (int i = 0; i < text.Length; i++)
-            {
-                for (int k = 0; k < text.Length; k++)
-                {
-                    char letter = text[k];
-                    char letter_tab = tab[i][0];
-
-                    if (letter_tab == letter)
-                    {
-                        char tab_letter_count = tab[i][1];
-                        int tab_letter_count_int = Convert.ToInt32(tab_letter_count);
-
-                        tab_letter_count_int = tab_letter_count_int + 1;
-
-                        string tab_new_letter_number = Convert.ToString(tab_letter_count_int);
-                        tab[i] = letter + tab_new_letter_number;
-                        tab[i] = tab[i].Replace(tab[i], letter + tab_new_letter_number);
-                    }
-                }
-            }
-            
-            char letter;
-            char letter_tab;
-
-            for (int i = 0; i < text.Length; i++)
-            {
-                for (int j = 0; j < text.Length; j++)
-                {
-                    letter = text[j];
-                    letter_tab = tab_[i];
-                    
-                    if (letter == letter_tab)
-                    {
-                        char tab_letter_count = tab[i][1];
-                        int tab_letter_count_int = Convert.ToInt32(tab_letter_count);
-
-                        tab_letter_count_int = tab_letter_count_int + 1;
-
-                        string tab_new_letter_number = Convert.ToString(tab_letter_count_int);
-                        tab[i] = tab[i].Replace(tab[i], letter + tab_new_letter_number);
-                    }
-                }
-            }*/
-
-
+        public static string RemoveWhitespace(this string input)
+        {
+            return new string(input.ToCharArray()
+                .Where(c => !Char.IsWhiteSpace(c))
+                .ToArray());
         }
 
         static void Main(string[] args)
         {
-            string text = "kotek nazywa sie misiek";
-            string[] tab = new string[text.Length];
+            string text = null;
 
-            for (int j = 0; j < text.Length; j++)
+            try
+            {   // Open the text file using a stream reader.
+                using (StreamReader sr = new StreamReader("C:/GIT/test.txt"))
+                {
+                    // Read the stream to a string, and write the string to the console.
+                    text = sr.ReadToEnd();
+                }
+            }
+            catch (Exception e)
             {
-                char letter_text_char = text[j];
-                tab[j] = Convert.ToString(letter_text_char);
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(e.Message);
             }
 
-            var querry1 = tab.Select(n => n).ToArray();
+           // text = "Kotek cos tam cos tam";
 
-            foreach (var group in querry1.GroupBy(s => s))
-                Console.WriteLine("{0} = {1}", group.Key, group.Count());
+            //usuwamy spacje dla prostoty
+            text = RemoveWhitespace(text);
 
+            var countsTable = text.CharacterCount().ToList();
 
-            foreach (var group in querry1.GroupBy(s => s))
-            {
-                //tab = group.Key + group.Count();
-            }
+            var frequenciesTable = countsTable.OrderByDescending(c => c.Value).ToList();
 
-            var asd = tab.Select(n => n).ToArray().GroupBy(s => s);
-            var query3 = asd.Select(n => n).ToArray().OrderByDescending(c => c);
-            /*
-            foreach (var item in asd)
-            {
-                Console.Write(item + " ");
-            }
-            */
-            Tree<int> tree = new Tree<int>(0, null, "a");
             
-            foreach (var group in tab.GroupBy(s => s))
+           
+            Tree<int> tree = new Tree<int>(frequenciesTable[0].Value, null, frequenciesTable[0].Key.ToString());
+
+            for(var i = 1; i<frequenciesTable.Count; i++)
             {
-                tree.Insert(Convert.ToInt32(group.Count()), group.Key);
+                tree.Insert(frequenciesTable[i].Value, frequenciesTable[i].Key.ToString());
             }
 
-            string[] tab1 = new string[tab.Length];
+            //foreach (var frequencyRow in frequenciesTable)
+            //{
+
+            //       Console.Write(frequencyRow.Key);
+            //       Console.WriteLine(frequencyRow.Value);
+
+            //}
+
+
             tree.WalkTree();
-
-
-            //Console.WriteLine("{0} = {1}", group.Key, group.Count());
-
-            //tree.WalkTree();
-
-            //List<Tree<int>> objList = new List<Tree<int>>();
-            //List<Tree<int>> SortedList = objListOrder.OrderBy(o => o.NodeData).ToList();
-
-
             Console.ReadKey();
-            
+
             /*
             Tree<int> tree = new Tree<int>(20, null, "a");
 
